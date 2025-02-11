@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int n;
+    cout<<"enter the size of the matrix";
+    cin>>n;
+    int matrix[n][n];
+    int number=1;
+    int top=0,bottom=n-1,left=0,right=n-1;
+
+    while(number<=n*n){
+        for(int i=left;i<=right;i++){
+            matrix[top][i]=number++;
+        }
+        top++;
+        for(int i=top;i<=bottom;i++){
+            matrix[i][right]=number++;
+        }
+        right--;
+        for(int i=right;i>=left;i--){
+            matrix[bottom][i]=number++;
+        }
+        bottom--;
+        for(int i=bottom;i>=top;i--){
+            matrix[i][left]=number++;
+        }
+        left++;
+
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cout<<matrix[i][j]<<"\t";
+        }
+        cout<<endl;
+        
+    } 
+    return 0;
+
+
+}
